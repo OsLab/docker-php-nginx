@@ -9,8 +9,12 @@ RUN chmod +x /tmp/*.sh
 
 # Run all scripts
 RUN sh /tmp/env.sh && \
+    sh /tmp/common-tools.sh && \
+    apt-get  install --no-install-recommends -qy gnupg && \
     sh /tmp/apt.sh && \
-    sh /tmp/composer.sh \
+    sh /tmp/js-tools.sh && \
+    sh /tmp/composer.sh && \
+    sh /tmp/clean.sh \
 
 # Config
 COPY ./image/config/php.ini /etc/php/7.1/cli/conf.d/50-setting.ini
