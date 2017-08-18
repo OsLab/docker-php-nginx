@@ -33,7 +33,9 @@ The sandbox uses [Docker][docker], a container tool for setting up a rapid devel
 - [Docker][docker] (1.12+)
 - [Docker-composer][docker-compose] (1.10+)
 
-### Basic configuration 
+### Basic configuration with Symfony
+
+Create a file called docker-compose.yml in your project directory and paste the following:
 
 ```yaml
 version: "2"
@@ -74,6 +76,14 @@ services:
         ports:
             - "127.0.0.1:8081:80"
 ```
+
+Build and run your app with Compose:
+
+```
+$ docker-compose up
+```
+
+Enter [http://localhost:8080/](http://localhost:8080/) in a browser to see the application running.
 
 ---
 
