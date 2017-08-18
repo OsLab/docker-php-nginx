@@ -9,12 +9,14 @@ RUN chmod +x /tmp/*.sh
 
 # Run all scripts
 RUN sh /tmp/env.sh && \
-    sh /tmp/apt-common.sh && \
+    sh /tmp/common-tools.sh && \
     echo "deb http://packages.dotdeb.org jessie all" > /etc/apt/sources.list.d/dotdeb.list && \
     wget -O- https://www.dotdeb.org/dotdeb.gpg | apt-key add - && \
     apt-get update -q && \
-    sh /tmp/apt-php.sh && \
-    sh /tmp/composer.sh \
+    sh /tmp/apt.sh && \
+    sh /tmp/js-tools.sh && \
+    sh /tmp/composer.sh && \
+    sh /tmp/clean.sh \
 
 # Config
 COPY ./image/config/php.ini /etc/php/7.0/cli/php.ini
