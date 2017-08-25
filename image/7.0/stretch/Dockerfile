@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Florent DESPIERRES <florent.despierres.ext@francetv.fr>
+MAINTAINER Florent DESPIERRES <orions07@gmail.com>
 
 # Copy all scripts
 COPY ./image/scripts/*.sh /tmp/
@@ -22,9 +22,15 @@ COPY ./image/config/pool.conf /etc/php/7.0/fpm/pool.d/www.conf
 COPY ./image/config/nginx.conf /etc/nginx/nginx.conf
 COPY ./image/7.0/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./image/config/ssl/ /etc/ssl/nginx/
+COPY ./image/config/.bashrc /root/.bashrc
 
 # Run supervisor
 EXPOSE 80 443
+
+COPY ./image/config/motd.head /etc/motd.head
+COPY ./image/config/phpdocker-release /etc/phpdocker-release
+COPY ./image/config/50-phpdocker /etc/update-motd.d/50-phpdocker
+RUN rm -f /etc/motd && chmod +x /etc/update-motd.d/* && ln -s /etc/update-motd.d/50-phpdocker /etc/motd
 
 WORKDIR /app
 
