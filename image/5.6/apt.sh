@@ -13,4 +13,5 @@ apt-get install --no-install-recommends -qy \
     php5-mysql \
     php5-sqlite \
     php5-xdebug \
-    php5-memcached \
+    php5-memcached && \
+    php5dismod -s cli xdebug

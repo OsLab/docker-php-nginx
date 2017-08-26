@@ -13,6 +13,7 @@ apt-get install -qy \
     wget \
     curl \
     nano \
+    vim \
     git \
     tar \
     unzip \

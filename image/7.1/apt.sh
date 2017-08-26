@@ -25,3 +25,5 @@ apt-get install --no-install-recommends -qy \
     php7.1-xdebug \
     php7.1-xml \
     php7.1-zip \
+
+phpdismod -s cli xdebug
