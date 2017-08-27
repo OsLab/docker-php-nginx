@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Florent DESPIERRES <forions07@gmail.com>
+MAINTAINER Florent DESPIERRES <orions07@gmail.com>
 
 # Copy all scripts
 COPY ./image/scripts/*.sh /tmp/
