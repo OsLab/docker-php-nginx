@@ -30,7 +30,7 @@ fi
 
 [ -f /etc/motd.head ] && cat /etc/motd.head || true
 printf "\n"
-printf "Welcome on %s (%s %s %s %s)\n" "$os_name" "${KERNEL_VERSION}" "$(uname -m)" "$KERNEL_TITLE"
+printf "Welcome on %s (%s %s %s)\n" "$os_name" "${KERNEL_VERSION}" "$(uname -m)" "$KERNEL_TITLE"
 printf "\n"
 printf "System information as of: %s\n" "$date"
 printf "\n"
@@ -42,6 +42,7 @@ printf "Docker engine IP: %s" $docker_engine_ip
 printf "\n"
 printf "\n"
 printf "Official repository:\t%s\n" "$IMAGE_REPOSITORY_URL"
-printf "Maintainers: :\t%s\n" "$MAINTAINER"
+printf "Maintainers: %s" "$MAINTAINER"
+printf "\n"
 printf "\n"
 [ -f /etc/motd.tail ] && cat /etc/motd.tail || true
