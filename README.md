@@ -2,10 +2,10 @@ Nginx PHP-FPM
 ========================
 > Sandbox for development - container running Nginx + PHP-FPM
 
-![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)
-[![Build Status](https://travis-ci.org/php-docker/nginx.svg?branch=master)](https://travis-ci.org/php-docker/nginx)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)
+[![Build Status](https://travis-ci.org/php-docker/nginx.svg?branch=master)](#)
 
-# Supported tags
+## Supported tags
 | Os                 | PHP | Image                       | Layers |
 |--------------------|-----|-----------------------------|--------|
 | Debian 7 (Wheeze)  | 5.6 | dockerphp/nginx:5.6-wheezy  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:5.6-wheezy.svg)](https://microbadger.com/images/dockerphp/nginx:5.6-wheezy) |
@@ -26,12 +26,22 @@ Nginx PHP-FPM
 * [Yarn]
 * [Git]
 
-# Required
+## Required
 
 The sandbox uses [Docker][docker], a container tool for setting up a rapid development environment. The project has only two prerequisites:
 
 - [Docker][docker] (1.12+)
 - [Docker-composer][docker-compose] (1.10+)
+
+## Usage
+
+### Simple usage
+
+Acces to the container console easily:
+
+    docker run --rm -ti -v /your/project:/app dockerphp/nginx:7.1-jessie sh
+
+### Configuration of your Docker compose
 
 ### Basic configuration with Symfony
 
