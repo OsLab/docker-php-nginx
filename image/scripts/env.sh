@@ -8,3 +8,5 @@ export TERM="DEBIAN_FRONTED=noninteractive"
 export SYMFONY_ALLOW_APPDEV="1"
 export COMPOSER_ALLOW_SUPERUSER="1"
 export NODE_VERSION="8.4.0"
+
+mkdir -p /var/run/php
