@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # for returning later to the main directory
-ROOT_DIRECTORY=`pwd`
+ROOT_DIRECTORY=./
 
 # read repository configuration
 source $ROOT_DIRECTORY/vars
