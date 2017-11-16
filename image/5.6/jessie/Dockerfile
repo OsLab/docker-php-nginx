@@ -17,6 +17,8 @@ RUN sh /tmp/env.sh && \
 
 # Config
 COPY ./image/config/php.ini /etc/php5/cli/php.ini
+COPY ./image/config/etc/php5/fpm/conf.d/20-mongodb.ini /etc/php5/fpm/conf.d/20-mongodb.ini
+COPY ./image/config/etc/php5/fpm/conf.d/20-mongo.ini /etc/php5/fpm/conf.d/20-mongo.ini
 COPY ./image/config/pool.conf /etc/php5/fpm/pool.d/www.conf
 COPY ./image/config/nginx.conf /etc/nginx/nginx.conf
 COPY ./image/config/ssl/ /etc/ssl/nginx/

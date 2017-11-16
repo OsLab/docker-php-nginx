@@ -14,5 +14,13 @@ apt-get install --no-install-recommends -qy \
     php5-sqlite \
     php5-xdebug \
     php5-memcached \
+    php5-dev \
+    php-pear \
+    libcurl4-openssl-dev \
+    pkg-config \
+    libsasl2-dev \
+
+pecl install mongo
+pecl install mongodb
 
 php5dismod -s cli xdebug
