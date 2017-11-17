@@ -1,2 +1,2 @@
 IMAGE_REPOSITORY_URL="https://github.com/php-docker/nginx"
-MAINTAINER="Florent DESPIERRES <orions07@gmail.com>, Michael COULLERET <michael.coulleret@gmail.com>"
+MAINTAINER="Florent DESPIERRES <florent@despierres.pro>, Michael COULLERET <michael@coulleret.pro>"

@@ -14,5 +14,11 @@ apt-get install --no-install-recommends -qy \
     php5-sqlite \
     php5-xdebug \
     php5-memcached \
+    php5-dev \
+    php-pear \
+
+# https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/#php-driver-compatibility
+pecl install mongo
+pecl install mongodb
 
 php5dismod -s cli xdebug

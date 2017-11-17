@@ -15,5 +15,9 @@ apt-get install --no-install-recommends -qy \
     php7.0-sqlite \
     php7.0-xdebug \
     php7.0-zip \
+    php7.0-dev \
+    php-pear \
 
 phpdismod -s cli xdebug
+
+pecl install mongodb

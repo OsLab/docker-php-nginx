@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Florent DESPIERRES <orions07@gmail.com>
+MAINTAINER Florent DESPIERRES <florent@despierres.pro>
 
 # Copy all scripts
 COPY ./image/scripts/*.sh /tmp/
@@ -18,6 +18,8 @@ RUN sh /tmp/env.sh && \
 
 # Config
 COPY ./image/config/php.ini /etc/php/7.0/cli/php.ini
+COPY ./image/config/etc/php/conf.d/20-mongodb.ini /etc/php/7.0/fpm/conf.d/20-mongodb.ini
+COPY ./image/config/etc/php/conf.d/20-mongodb.ini /etc/php/7.0/cli/conf.d/20-mongodb.ini
 COPY ./image/config/pool.conf /etc/php/7.0/fpm/pool.d/www.conf
 COPY ./image/config/nginx.conf /etc/nginx/nginx.conf
 COPY ./image/7.0/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
