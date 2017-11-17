@@ -16,10 +16,8 @@ apt-get install --no-install-recommends -qy \
     php5-memcached \
     php5-dev \
     php-pear \
-    libcurl4-openssl-dev \
-    pkg-config \
-    libsasl2-dev \
 
+# https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/#php-driver-compatibility
 pecl install mongo
 pecl install mongodb
 

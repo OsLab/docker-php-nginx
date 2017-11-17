@@ -21,3 +21,6 @@ apt-get install -qy \
     tzdata \
     supervisor \
     mysql-client \
+    libcurl4-openssl-dev \
+    pkg-config \
+    libsasl2-dev \
