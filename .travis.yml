@@ -3,3 +3,6 @@ services: docker
 
 install:
   - bash build.sh
+
+after_success:
+  - bash publish.sh
