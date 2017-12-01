@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Florent DESPIERRES <florent@despierres.pro>
+LABEL maintainer="Florent DESPIERRES <florent@despierres.pro> Michael COULLERET <michael@coulleret.pro>"
 
 # Copy all scripts
 COPY ./image/scripts/*.sh /tmp/
