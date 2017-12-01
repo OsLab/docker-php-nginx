@@ -8,13 +8,14 @@ Nginx PHP-FPM
 ## Supported tags
 | Os                 | PHP | Image                       | Layers |
 |--------------------|-----|-----------------------------|--------|
-| Debian 7 (Wheeze)  | 5.6 | dockerphp/nginx:5.6-wheezy  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:5.6-wheezy.svg)](https://microbadger.com/images/dockerphp/nginx:5.6-wheezy) |
-| Debian 8 (Jessie)  | 5.6 | dockerphp/nginx:5.6-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:5.6-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:5.6-jessie) |
-| Debian 8 (Jessie)  | 7.0 | dockerphp/nginx:7.0-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.0-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:7.0-jessie) |
-| Debian 9 (Stretch) | 7.0 | dockerphp/nginx:7.0-stretch | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.0-stretch.svg)](https://microbadger.com/images/dockerphp/nginx:7.0-stretch) |
+| Debian 8 (Jessie)  | 7.2 | dockerphp/nginx:7.2-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.2-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:7.2-jessie) |
+| Debian 9 (Stretch) | 7.2 | dockerphp/nginx:7.2-stretch | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.2-stretch.svg)](https://microbadger.com/images/dockerphp/nginx:7.2-stretch) |
 | Debian 8 (Jessie)  | 7.1 | dockerphp/nginx:7.1-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.1-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:7.1-jessie) |
 | Debian 9 (Stretch) | 7.1 | dockerphp/nginx:7.1-stretch | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.1-stretch.svg)](https://microbadger.com/images/dockerphp/nginx:7.1-stretch) |
-
+| Debian 8 (Jessie)  | 7.0 | dockerphp/nginx:7.0-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.0-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:7.0-jessie) |
+| Debian 9 (Stretch) | 7.0 | dockerphp/nginx:7.0-stretch | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:7.0-stretch.svg)](https://microbadger.com/images/dockerphp/nginx:7.0-stretch)
+| Debian 7 (Wheeze)  | 5.6 | dockerphp/nginx:5.6-wheezy  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:5.6-wheezy.svg)](https://microbadger.com/images/dockerphp/nginx:5.6-wheezy) |
+| Debian 8 (Jessie)  | 5.6 | dockerphp/nginx:5.6-jessie  | [![](https://images.microbadger.com/badges/image/dockerphp/nginx:5.6-jessie.svg)](https://microbadger.com/images/dockerphp/nginx:5.6-jessie) |
 > Based on [Official PHP images Debian](https://hub.docker.com/_/debian/) and all versions come with:
 
 * Dependency Manager:
@@ -39,7 +40,7 @@ The sandbox uses [Docker][docker], a container tool for setting up a rapid devel
 
 Acces to the container console easily:
 
-    docker run --rm -ti -v /your/project:/app dockerphp/nginx:7.1-jessie sh
+    docker run --rm -ti -v /your/project:/app dockerphp/nginx:7.2-jessie bash
 
 ### Configuration of your Docker compose
 
