@@ -10,7 +10,7 @@ Nginx PHP-FPM
 
 ## Official docker repository
 
-Docker Hub: [Docker-hub]
+Docker Hub: https://hub.docker.com/r/dockerphp/nginx/
 
 ## Supported tags
 | Os                 | PHP | Image                       | Layers |
@@ -111,7 +111,6 @@ This project is released under the MIT License, you agree to license your code u
 
 [docker]: https://www.docker.com
 [docker-compose]: https://docs.docker.com/compose/install/
-[Docker-hub]: https://hub.docker.com/r/dockerphp/nginx/
 [Sass]: http://sass-lang.com/
 [Yarn]: https://yarnpkg.com
 [Git]: https://git-scm.com/
