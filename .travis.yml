@@ -5,5 +5,5 @@ install:
   - bash build.sh
 
 after_success:
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - bash publish.sh
