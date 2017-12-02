@@ -28,4 +28,6 @@ apt-get install --no-install-recommends -qy \
     php7.1-dev \
     php-pear \
 
+pecl install mongodb
+
 phpdismod -s cli xdebug
