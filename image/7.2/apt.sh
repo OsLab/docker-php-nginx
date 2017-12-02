@@ -21,7 +21,6 @@ apt-get install --no-install-recommends -qy \
     php7.2-pdo \
     php7.2-phar \
     php7.2-sqlite \
-    php7.1-xdebug \
     php7.2-xml \
     php7.2-zip \
     php7.2-dev \
@@ -30,3 +29,9 @@ apt-get install --no-install-recommends -qy \
 pecl install mongodb
 
 phpdismod -s cli xdebug
+
+git clone https://github.com/xdebug/xdebug.git
+cd xdebug
+./rebuild.sh
+cd ..
+rm -rf xdebug
