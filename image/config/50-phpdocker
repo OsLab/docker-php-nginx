@@ -12,7 +12,7 @@ date=`date`
 load=`cat /proc/loadavg | awk '{print $1}'`
 container_id=`cat /proc/1/cgroup | grep 'docker/' | tail -1 | sed 's/^.*\///' | cut -c 1-12`
 docker_engine_ip=`/sbin/ip route|awk '/default/ { print $3 }'`
-version_php=`echo $(php -v|grep --only-matching --perl-regexp "5\.\\d+\.\\d+")`
+version_php=`echo $(php -v) | cut -c5-10 | sed -e 's/-//g'`
 root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
 memory_usage=`free -m | awk '/Mem:/ { total=$2 } /buffers\/cache/ { used=$3 } END { printf("%3.1f%%", used/total*100)}'`
 swap_usage=`free -m | awk '/Swap/ { printf("%3.1f%%", "exit !$2;$3/$2*100") }'`
