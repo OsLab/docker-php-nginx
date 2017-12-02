@@ -1,9 +1,16 @@
+<p align="center">
+    <img src="https://avatars2.githubusercontent.com/u/29777546?s=200&v=4?v=3&s=200">
+</p>
+
 Nginx PHP-FPM
 ========================
 > Sandbox for development - container running Nginx + PHP-FPM
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)
-[![Build Status](https://travis-ci.org/php-docker/nginx.svg?branch=master)](#)
+ [![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)  [![Build Status](https://travis-ci.org/php-docker/nginx.svg?branch=master)](#) 
+
+## Official docker repository
+
+Docker Hub: [Docker-hub]
 
 ## Supported tags
 | Os                 | PHP | Image                       | Layers |
@@ -44,7 +51,7 @@ Acces to the container console easily:
 
 ### Configuration of your Docker compose
 
-### Basic configuration with Symfony
+#### Basic configuration with Symfony
 
 Create a file called docker-compose.yml in your project directory and paste the following:
 
@@ -104,6 +111,7 @@ This project is released under the MIT License, you agree to license your code u
 
 [docker]: https://www.docker.com
 [docker-compose]: https://docs.docker.com/compose/install/
+[Docker-hub]: https://hub.docker.com/r/dockerphp/nginx/
 [Sass]: http://sass-lang.com/
 [Yarn]: https://yarnpkg.com
 [Git]: https://git-scm.com/
