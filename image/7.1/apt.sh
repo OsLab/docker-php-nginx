@@ -26,8 +26,9 @@ apt-get install --no-install-recommends -qy \
     php7.1-xml \
     php7.1-zip \
     php7.1-dev \
+    php7.1-mbstring \
     php-pear \
 
-pecl install mongodb
+pecl install mongodb redis
 
 phpdismod -s cli xdebug
