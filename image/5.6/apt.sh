@@ -19,6 +19,6 @@ apt-get install --no-install-recommends -qy \
 
 # https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/#php-driver-compatibility
 pecl install mongo
-pecl install mongodb
+pecl install mongodb redis
 
 php5dismod -s cli xdebug

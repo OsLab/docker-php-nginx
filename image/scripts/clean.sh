@@ -2,4 +2,4 @@
 
 ## Clear APT
 apt-get clean
-rm -rf /var/lib/apt/lists/* /var/tmp/*
+rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
