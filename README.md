@@ -6,7 +6,7 @@ Nginx PHP-FPM
 ========================
 > Sandbox for development - container running Nginx + PHP-FPM
 
- [![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)  [![Build Status](https://travis-ci.org/php-docker/nginx.svg?branch=master)](#) 
+ [![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)  [![Build Status](https://api.travis-ci.org/OsLab/docker-php-nginx.svg?branch=master)](#) 
 
 ## Official docker repository
 
