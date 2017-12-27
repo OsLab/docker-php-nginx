@@ -6,6 +6,8 @@ Nginx PHP-FPM
 ========================
 > Sandbox for development - container running Nginx + PHP-FPM
 
+> Adapt for any type of project (Framework, CMS, legacy ..)
+
  [![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/nginx.svg)](#)  [![Build Status](https://api.travis-ci.org/OsLab/docker-php-nginx.svg?branch=master)](#) 
 
 ## Official docker repository
@@ -46,26 +48,25 @@ The sandbox uses [Docker][docker], a container tool for setting up a rapid devel
 
 Access to the container console easily:
 
-    docker run --rm -ti -v $(pwd):/app dockerphp/nginx:7.2-jessie bash
+    docker run --rm -ti -v $(pwd):/app dockerphp/nginx:7.2-stretch bash
 
 ### Configuration of your Docker compose
 
-#### Basic configuration with Symfony
+#### Basic configuration
 
-Create a file called docker-compose.yml in your project directory and paste the following:
+Create a file called `docker-compose.yml` in your project directory and paste the following:
 
 ```yaml
 version: "2"
 
 services:
     app:
-        image: dockerphp/nginx:7.1-jessie
+        image: dockerphp/nginx:7.2-stretch
         depends_on:
             - db
             - memcached
         volumes:
             - .:/app
-            - /app/var/
         ports:
             - "8080:443"
 
@@ -73,13 +74,9 @@ services:
         image: mariadb:10.3
         environment:
             MYSQL_ROOT_PASSWORD: root
-        ports:
-            - "3301:3306"
-
+  
     memcached:
         image: memcached:latest
-        ports:
-          - "11221:11211"
         mem_limit: 1g
 
     pma:
@@ -97,10 +94,122 @@ services:
 Build and run your app with Compose:
 
 ```
-$ docker-compose up
+$ docker-compose up -d --remove-orphans
 ```
 
 Enter [http://localhost:8080/](http://localhost:8080/) in a browser to see the application running.
+
+#### Overloading configurations
+
+You can override the nginx or PHP configuration easily as well:
+
+```yaml
+services:
+    app:
+        image: dockerphp/nginx:7.2-stretch
+        volumes:
+            - .:/app
+            - ./docker/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./docker/php.ini:/etc/php5/fpm/php.ini
+```
+
+Example for Symfony Flex, overload `nginx.conf`:
+
+```
+daemon off;
+user www-data;
+worker_processes 5;
+pid /run/nginx.pid;
+
+error_log /dev/stdout info;
+
+events {
+    worker_connections 1024;
+    # multi_accept on;
+}
+
+http {
+    access_log /dev/stdout;
+
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    types {
+        font/woff2 woff2;
+    }
+    client_max_body_size 10M;
+
+    ##
+    # Virtual Host Configs
+    ##
+
+    server {
+        listen 443 ssl;
+        server_name oslab.demo.net;
+
+        ssl on;
+        ssl_certificate /etc/ssl/nginx/nginx.crt;
+        ssl_certificate_key /etc/ssl/nginx/nginx.key;
+
+        root /app/public;
+        index index.php;
+
+        location / {
+            try_files $uri /index.php$is_args$args;
+        }
+
+        location ~ \.php(/|$) {
+            internal;
+
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_split_path_info ^(.+\.php)(/.*)$;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param SYMFONY_ENV dev;
+            fastcgi_param HTTPS on;
+
+            fastcgi_buffers 16 16k;
+            fastcgi_buffer_size 32k;
+        }
+    }
+}
+```
+
+An example of `php.ini` overload for writing sessions in memcached.
+
+```
+; Add here the parameters that you want to override
+
+short_open_tag = Off
+date.timezone = Europe/Paris
+error_log = /proc/self/fd/2
+upload_max_filesize = 10M
+post_max_size = 10M
+memory_limit=1024M
+
+; https://symfony.com/doc/3.4/performance.html
+opcache.max_accelerated_files = 20000
+realpath_cache_size=4096K
+realpath_cache_ttl=600
+
+; xdebug
+xdebug.remote_enable=on
+xdebug.remote_autostart=off
+xdebug.remote_port=9000
+xdebug.remote_handler=dbgp
+xdebug.remote_connect_back=0
+
+;session.save_handler=memcached
+memcached session.save_path = 'tcp://memcached_1:11211,tcp://memcached_2:11211'
+```
 
 ---
 
