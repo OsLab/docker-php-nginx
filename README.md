@@ -44,9 +44,9 @@ The sandbox uses [Docker][docker], a container tool for setting up a rapid devel
 
 ### Simple usage
 
-Acces to the container console easily:
+Access to the container console easily:
 
-    docker run --rm -ti -v /your/project:/app dockerphp/nginx:7.2-jessie bash
+    docker run --rm -ti -v $(pwd):/app dockerphp/nginx:7.2-jessie bash
 
 ### Configuration of your Docker compose
 
