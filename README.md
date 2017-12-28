@@ -109,7 +109,7 @@ services:
         image: dockerphp/nginx:7.2-stretch
         volumes:
             - .:/app
-            - ./docker/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./docker/nginx.conf:/etc/nginx/nginx.conf
             - ./docker/php.ini:/etc/php5/fpm/php.ini
 ```
 
