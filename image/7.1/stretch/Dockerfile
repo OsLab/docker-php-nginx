@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 
 LABEL maintainer="Florent DESPIERRES <florent@despierres.pro> Michael COULLERET <michael@coulleret.pro>"
 
@@ -10,7 +10,6 @@ RUN chmod +x /tmp/*.sh
 # Run all scripts
 RUN sh /tmp/env.sh && \
     sh /tmp/common-tools.sh && \
-    apt-get  install --no-install-recommends -qy gnupg && \
     sh /tmp/apt.sh && \
     sh /tmp/js-tools.sh && \
     sh /tmp/composer.sh && \
@@ -25,7 +24,7 @@ COPY ./image/config/pool.conf /etc/php/7.1/fpm/pool.d/www.conf
 COPY ./image/config/nginx.conf /etc/nginx/nginx.conf
 COPY ./image/7.1/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./image/config/ssl/ /etc/ssl/nginx/
-COPY ./image/config/.bashrc /root/.bashrc
+COPY ./image/config/sudoers /etc/sudoers
 
 # Run supervisor
 EXPOSE 80 443
@@ -37,4 +36,6 @@ RUN rm -f /etc/motd && chmod +x /etc/update-motd.d/* && ln -s /etc/update-motd.d
 
 WORKDIR /app
 
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+USER php
+
+CMD ["sudo", "supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

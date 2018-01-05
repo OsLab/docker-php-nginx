@@ -3,6 +3,7 @@
 apt-get update -q
 
 apt-get install -qy \
+    sudo \
     software-properties-common \
     apt-utils \
     apt-transport-https \

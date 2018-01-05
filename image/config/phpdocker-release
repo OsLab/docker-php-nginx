@@ -1,2 +1,4 @@
 IMAGE_REPOSITORY_URL="https://github.com/php-docker/nginx"
+WIKI_REPOSITORY_URL="https://github.com/OsLab/docker-php-nginx/wiki"
 MAINTAINER="Florent DESPIERRES <florent@despierres.pro>, Michael COULLERET <michael@coulleret.pro>"
+VERSION=1.2.0
