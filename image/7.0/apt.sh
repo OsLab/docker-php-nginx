@@ -1,5 +1,9 @@
 #!/bin/bash
 
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
+apt-get update -q
+
 apt-get install --no-install-recommends -qy \
     php7.0 \
     php7.0-common \

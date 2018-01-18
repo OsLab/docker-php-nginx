@@ -27,7 +27,8 @@ apt-get install --no-install-recommends -qy \
     php7.1-zip \
     php7.1-dev \
     php7.1-mbstring \
-    php-pear \
+
+apt-get install -y php-pear
 
 pecl install mongodb redis
 
