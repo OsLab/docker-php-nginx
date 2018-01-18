@@ -13,7 +13,7 @@ RUN sh /tmp/env.sh && \
     sh /tmp/apt.sh && \
     sh /tmp/js-tools.sh && \
     sh /tmp/composer.sh && \
-    sh /tmp/clean.sh \
+    sh /tmp/clean.sh
 
 # Config
 COPY ./image/config/php.ini /etc/php/7.2/cli/conf.d/50-setting.ini

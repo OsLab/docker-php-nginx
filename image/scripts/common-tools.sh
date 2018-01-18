@@ -5,6 +5,8 @@ apt-get update -q
 apt-get install -qy \
     sudo \
     software-properties-common \
+    wget \
+    gnupg2 \
     apt-utils \
     apt-transport-https \
     lsb-release \

@@ -13,7 +13,7 @@ RUN sh /tmp/env.sh && \
     sh /tmp/apt.sh && \
     sh /tmp/js-tools.sh && \
     sh /tmp/composer.sh && \
-    sh /tmp/clean.sh \
+    sh /tmp/clean.sh
 
 # Config
 COPY ./image/config/php.ini /etc/php5/cli/php.ini
