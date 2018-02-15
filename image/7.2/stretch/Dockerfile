@@ -14,14 +14,13 @@ RUN chmod +x /tmp/*.sh && \
     sh /tmp/composer.sh && \
     sh /tmp/clean.sh
 
-# Config
+# Copy config
 COPY ./image/config /
 COPY ./image/7.2/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN rm -f /etc/motd && chmod +x /etc/update-motd.d/* && ln -s /etc/update-motd.d/50-phpdocker /etc/motd
 
-# Run supervisor
-EXPOSE 80 443
+EXPOSE 80 443 9000
 
 WORKDIR /app
 
